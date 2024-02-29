@@ -1,0 +1,50 @@
+<h2 class="mb-5">Registro de Persona</h2>
+
+<div class="row row-cols-3 justify-content-center">
+    <form [formGroup]="form" (ngSubmit)="create()">
+        <div class="mb-3">
+            <label for="firsName">Nombre</label>
+            <input id="firsName" type="text" placeholder="Nombre" class="form-control"
+                formControlName="firsName">
+        </div>
+    
+        <div class="mb-3">
+            <label for="lastName">Apellido</label>
+            <input id="lastName" type="text" placeholder="Apellido" class="form-control"
+                formControlName="lastName">
+        </div>
+    
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input id="email" type="text" placeholder="Correo" class="form-control"
+                formControlName="email">
+        </div>
+    
+        <div class="mb-3">
+            <label for="numeroTelefono">Numero de telefono</label>
+            <input id="numeroTelefono" type="number" placeholder="Numero de telefono" class="form-control"
+                formControlName="numeroTelefono">
+        </div>
+    
+        <div class="mb-3">
+            <label for="ciudad">Ciudad</label>
+            <input id="ciudad" type="text" placeholder="Ciudad" class="form-control"
+                formControlName="ciudad">
+        </div>
+    
+        <div class="mb-3">
+            <label for="pais">Pais</label>
+            <input id="pais" type="text" placeholder="Pais" class="form-control"
+                formControlName="pais">
+        </div>
+    
+        <div class="text-end">
+            <button type="button" class="btn btn-light" routerLink="/profile" >
+                Cancelar
+            </button>
+            <button class="btn btn-primary ms-2">
+                Crear Persona
+            </button>
+        </div>
+    </form>
+</div>

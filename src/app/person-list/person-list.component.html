@@ -1,0 +1,34 @@
+<h2 class="mb-5">Lista de Personas</h2>
+
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="/">
+        Registrar Persona
+    </button>
+</div>
+
+<table class="table table-hove">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Numero de telefono</th>
+            <th>Ciudad</th>
+            <th>Pais</th>
+        </tr>
+    </thead> 
+    <tbody>
+        @for(contact of contacts; track contact.id){
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.firsName }}</td>
+                <td>{{ contact.lastName }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.numeroTelefono }}</td>
+                <td>{{ contact.ciudad }}</td>
+                <td>{{ contact.pais }}</td>
+            </tr>    
+            }
+    </tbody>   
+</table>
