@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ContactService } from '../services/contact.service';
+import { PersonService } from '../services/person.service';
 import { RouterModule } from '@angular/router';
+import { Person } from '../person-model/person.interfase';
 
 @Component({
   selector: 'app-person-list',
@@ -10,16 +11,25 @@ import { RouterModule } from '@angular/router';
   styleUrl: './person-list.component.css'
 })
 export default class PersonListComponent implements OnInit {
-  private contactService = inject(ContactService);
+  private personService = inject(PersonService);
 
-  contacts: any [] = [];
-
-  
+  persons: Person [] = [];
 
   ngOnInit(): void {
-    this.contactService.list()
-      .subscribe((contacts: any) => {
-        this.contacts = contacts;
+    this.loadAll();
+  }
+
+  loadAll(){
+    this.personService.list()
+      .subscribe(persons => {
+        this.persons = persons;
+      });
+  }
+
+  deletePerson(person: Person){
+    this.personService.delete(person.id)
+      .subscribe(()=> {
+        this.loadAll();
       });
   }
 }

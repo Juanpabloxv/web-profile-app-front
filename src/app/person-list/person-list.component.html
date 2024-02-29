@@ -16,18 +16,29 @@
             <th>Numero de telefono</th>
             <th>Ciudad</th>
             <th>Pais</th>
+            <th></th>
         </tr>
     </thead> 
     <tbody>
-        @for(contact of contacts; track contact.id){
+        @for(person of persons; track person.id){
             <tr>
-                <td>{{ contact.id }}</td>
-                <td>{{ contact.firsName }}</td>
-                <td>{{ contact.lastName }}</td>
-                <td>{{ contact.email }}</td>
-                <td>{{ contact.numeroTelefono }}</td>
-                <td>{{ contact.ciudad }}</td>
-                <td>{{ contact.pais }}</td>
+                <td>{{ person.id }}</td>
+                <td>{{ person.firstName }}</td>
+                <td>{{ person.lastName }}</td>
+                <td>{{ person.email }}</td>
+                <td>{{ person.numeroTelefono }}</td>
+                <td>{{ person.ciudad }}</td>
+                <td>{{ person.pais }}</td>
+                <td class="text-end">
+                    <div class="btn-group">
+                        <button class="btn btn-primary me-2" [routerLink]="[person.id, 'edit']">
+                            Editar
+                        </button>
+                        <button class="btn btn-danger" (click)="deletePerson(person)">
+                            Eliminar
+                        </button>
+                    </div>
+                </td>
             </tr>    
             }
     </tbody>   

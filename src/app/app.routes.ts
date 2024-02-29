@@ -12,5 +12,9 @@ export const routes: Routes = [
     {
         path:'profile',
         loadComponent: () => import('./person-profile/person-profile.component')
+    },
+    {
+        path:'list/:id/edit',
+        loadComponent: () => import('./person-form/person-form.component')
     }
 ];
